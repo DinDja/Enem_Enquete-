@@ -1,0 +1,27 @@
+# ============================================================
+#  DADOS SENSÍVEIS — NUNCA VERSIONAR
+#  Exports da enquete (contêm telefones) e bases de alunos
+#  (contêm nome, CPF e telefone) ficam somente na máquina local.
+# ============================================================
+SEC_ENEM*.xlsx
+BP_ESTUDANTES*
+*.xlsx
+*.xls
+*.csv
+*.json.gz
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Sistema / editor
+Thumbs.db
+.DS_Store
+*.swp
+
+# Arquivos de trabalho temporários / tooling local
+.codebase-memory/
+_app.js
+logo_sec_p*.png

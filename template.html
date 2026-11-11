@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENEM 2026 — Enquete de Participação · SEC Bahia</title>
+__CHARTJS__
+<style>
+  :root{
+    --verde-esc:#2F5410; --verde:#4E8315; --verde-med:#5E9B1B; --verde-lima:#8CC63F;
+    --verde-claro:#EEF6E2;
+    --amarelo:#FCB829; --amarelo-esc:#8A5B00; --amarelo-claro:#FDF3D0;
+    --sim:#16a34a; --sim-claro:#e7f6ec;
+    --cinza-bg:#f4f6f9; --cinza-borda:#e2e8f0; --texto:#1e293b; --texto-suave:#64748b;
+    --card:#ffffff; --sombra:0 1px 3px rgba(15,23,42,.08), 0 1px 2px rgba(15,23,42,.06);
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  body{font-family:"Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+       background:var(--cinza-bg); color:var(--texto); font-size:14px}
+  header{background:linear-gradient(135deg, #3A6611, var(--verde-med)); color:#fff;
+         padding:20px 28px 0}
+  header .inner{max-width:1280px; margin:0 auto}
+  .topline{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px}
+  .brand{display:flex; align-items:center; gap:16px; min-width:0}
+  .logo-chip{background:#fff; border-radius:10px; padding:7px 10px; line-height:0; flex:none;
+             box-shadow:0 1px 4px rgba(0,0,0,.18)}
+  .logo-chip img{height:54px; width:auto; display:block}
+  .brand-txt{min-width:0}
+  h1{font-size:1.45rem; font-weight:700; letter-spacing:.2px}
+  .sub{color:#e4f2cf; margin-top:4px; font-size:.9rem}
+  nav{display:flex; justify-content:center; gap:6px; margin-top:34px; flex-wrap:nowrap; overflow-x:auto;
+      scrollbar-width:thin; -webkit-overflow-scrolling:touch}
+  nav button{border:0; cursor:pointer; padding:10px 18px; border-radius:8px 8px 0 0;
+             font-size:.88rem; font-weight:600; color:#dcf0c0; background:rgba(255,255,255,.07);
+             white-space:nowrap; flex:none}
+  nav button:hover{background:rgba(255,255,255,.16)}
+  nav button.ativo{background:var(--cinza-bg); color:var(--verde-esc)}
+  nav button:disabled{opacity:.45; cursor:not-allowed}
+  main{max-width:1280px; margin:0 auto; padding:20px 28px 40px}
+
+  .kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:14px; margin-bottom:18px}
+  .kpi{background:var(--card); border:1px solid var(--cinza-borda); border-radius:12px;
+       padding:16px 18px; box-shadow:var(--sombra); border-top:3px solid var(--verde)}
+  .kpi.verde{border-top-color:var(--sim)} .kpi.amarelo{border-top-color:var(--amarelo)}
+  .kpi .rotulo{color:var(--texto-suave); font-size:.78rem; text-transform:uppercase; letter-spacing:.4px}
+  .kpi .valor{font-size:1.9rem; font-weight:700; line-height:1.15; margin-top:6px}
+  .kpi.verde .valor{color:var(--sim)} .kpi.amarelo .valor{color:var(--amarelo-esc)}
+  .kpi .detalhe{color:var(--texto-suave); font-size:.8rem; margin-top:4px}
+  .kpi .destaque{color:var(--verde); font-weight:700}
+
+  .grid2{display:grid; grid-template-columns:minmax(280px,340px) 1fr; gap:14px; margin-bottom:18px}
+  .grid2b{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:18px}
+  .card{background:var(--card); border:1px solid var(--cinza-borda); border-radius:12px;
+        padding:16px 18px; box-shadow:var(--sombra)}
+  .card h3{font-size:.95rem; margin-bottom:2px}
+  .card .nota{color:var(--texto-suave); font-size:.78rem; margin-bottom:10px}
+  .chart-box{position:relative; height:280px}
+  .chart-box.alto{height:420px}
+  .chart-box.medio{height:330px}
+  .canvas-wrap{position:relative}
+
+  table{width:100%; border-collapse:collapse; font-size:.85rem}
+  th,td{padding:8px 10px; text-align:left; border-bottom:1px solid var(--cinza-borda)}
+  th{background:var(--verde-claro); color:var(--verde-esc); font-weight:600; white-space:nowrap}
+  td.num,th.num{text-align:right; font-variant-numeric:tabular-nums}
+  tr:hover td{background:#f8fafc}
+  .tabela-scroll{overflow-x:auto}
+  .pill{display:inline-block; padding:2px 8px; border-radius:999px; font-size:.75rem; font-weight:600}
+  .pill.sim{background:var(--sim-claro); color:#15803d}
+  .pill.nao{background:var(--amarelo-claro); color:var(--amarelo-esc)}
+  .pill.cinza{background:#eef2f7; color:var(--texto-suave)}
+  .delta-pos{color:var(--sim); font-weight:700} .delta-neg{color:var(--amarelo-esc); font-weight:700}
+
+  .secao-titulo{display:flex; align-items:baseline; gap:10px; margin:26px 0 4px}
+  .secao-titulo h2{font-size:1.05rem; color:var(--verde-esc)}
+  .secao-titulo .linha{flex:1; height:1px; background:var(--cinza-borda)}
+
+  .vazio{color:var(--texto-suave); text-align:center; padding:36px 10px; font-size:.9rem}
+  .vazio strong{color:var(--texto)}
+
+  details{background:var(--card); border:1px solid var(--cinza-borda); border-radius:12px;
+          padding:14px 18px; box-shadow:var(--sombra); margin-top:26px}
+  summary{cursor:pointer; font-weight:600; color:var(--verde); font-size:.9rem}
+  details ul{margin:10px 0 4px 18px; color:var(--texto-suave); font-size:.82rem; line-height:1.55}
+  details p{margin-top:8px; color:var(--texto-suave); font-size:.82rem}
+  code{background:#eef2f7; padding:1px 6px; border-radius:5px; font-size:.78rem}
+
+  footer{color:var(--texto-suave); font-size:.75rem; text-align:center; padding:10px 0 24px}
+
+  /* ---------------- mobile ---------------- */
+  @media (max-width:720px){
+    header{padding:14px 14px 0}
+    main{padding:14px 14px 30px}
+    .brand{gap:10px}
+    .logo-chip{padding:5px 7px; border-radius:8px}
+    .logo-chip img{height:38px}
+    h1{font-size:1.08rem}
+    .sub{font-size:.78rem}
+    nav{margin-top:22px; justify-content:flex-start}
+    nav button{padding:8px 14px; font-size:.8rem}
+    .kpis{grid-template-columns:repeat(2,1fr); gap:10px}
+    .kpi{padding:12px 13px}
+    .kpi .valor{font-size:1.35rem}
+    .kpi .rotulo{font-size:.7rem}
+    .kpi .detalhe{font-size:.72rem}
+    .card{padding:12px 14px}
+    .card h3{font-size:.9rem}
+    .chart-box{height:230px}
+    .chart-box.medio{height:270px}
+    .chart-box.alto{height:420px}
+    table{font-size:.78rem}
+    th,td{padding:6px 8px}
+    .secao-titulo{margin-top:20px}
+    .secao-titulo h2{font-size:.95rem}
+  }
+  @media (max-width:900px){ .grid2,.grid2b{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<header>
+  <div class="inner">
+    <div class="topline">
+      <div class="brand">
+        <div class="logo-chip"><img src="__LOGO__" alt="Governo do Estado da Bahia — Secretaria da Educação"></div>
+        <div class="brand-txt">
+          <h1>ENEM 2026 · Enquete de Participação</h1>
+          <div class="sub">Secretaria da Educação do Estado da Bahia · Interações recebidas via WhatsApp</div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <nav id="tabs"></nav>
+  </div>
+</header>
+
+<main>
+  <!-- KPIs -->
+  <div class="kpis" id="kpis"></div>
+
+  <!-- Donut + série temporal -->
+  <div class="grid2">
+    <div class="card">
+      <h3>Comparecimento declarado</h3>
+      <div class="nota">Respostas à enquete: “Você compareceu à prova?”</div>
+      <div class="chart-box"><canvas id="cDonut"></canvas></div>
+      <div class="nota" style="margin:10px 0 0" id="donutLegenda"></div>
+    </div>
+    <div class="card">
+      <h3>Recebimento das respostas por hora</h3>
+      <div class="nota">Interações SIM/NÃO por hora (fuso de Brasília)</div>
+      <div class="chart-box"><canvas id="cHoras"></canvas></div>
+    </div>
+  </div>
+
+  <!-- DDD + operadoras -->
+  <div class="grid2b">
+    <div class="card">
+      <h3>Participação por DDD</h3>
+      <div class="nota">DDD de origem do número · principais DDDs + demais agrupados</div>
+      <div class="chart-box medio"><canvas id="cDdd"></canvas></div>
+    </div>
+    <div class="card">
+      <h3>Participação por operadora</h3>
+      <div class="nota">Operadora da rede conforme retorno da operadora (MCC)</div>
+      <div class="chart-box medio"><canvas id="cOper"></canvas></div>
+    </div>
+  </div>
+
+  <!-- UF -->
+  <div class="card" style="margin-bottom:18px">
+    <h3>Participação por UF da rede</h3>
+    <div class="nota">UF informada pela operadora · números fora da Bahia refletem contatos cadastrados em outros estados</div>
+    <div class="chart-box medio"><canvas id="cUf"></canvas></div>
+  </div>
+
+  <!-- Pé-de-Meia -->
+  <div class="secao-titulo"><h2>Cruzamento com base de concluintes Pé-de-Meia</h2><div class="linha"></div></div>
+  <div class="kpis" id="kpisPdm"></div>
+  <div class="grid2b">
+    <div class="card">
+      <h3>Comparecimento declarado — alunos identificados</h3>
+      <div class="nota">Entre os telefones presentes na base Pé-de-Meia</div>
+      <div class="chart-box"><canvas id="cPdmDonut"></canvas></div>
+    </div>
+    <div class="card">
+      <h3>Identificação por NTE</h3>
+      <div class="nota">Telefones da base que responderam a enquete, por NTE (todos os 27)</div>
+      <div class="chart-box alto"><canvas id="cPdmNte"></canvas></div>
+    </div>
+  </div>
+  <div class="card" id="bpAviso" style="margin-bottom:18px"></div>
+
+  <!-- Comparativo entre dias -->
+  <div class="secao-titulo"><h2>Comparativo entre dias de aplicação</h2><div class="linha"></div></div>
+  <div class="card" style="margin-bottom:18px"><div class="tabela-scroll" id="comparativo"></div></div>
+
+  <!-- Metodologia -->
+  <details>
+    <summary>Sobre os dados e metodologia</summary>
+    <ul id="avisos"></ul>
+    <p>A dashboard é atualizada automaticamente quando uma nova coleta da enquete é processada: o dia de aplicação é atribuído pela janela <code>[data da prova, +7 dias)</code>, e o cruzamento com as bases de alunos (Pé-de-Meia e Bolsa Presença, quando houver telefones) é feito por telefone normalizado (DDD + 9 dígitos).</p>
+    <p>Contém exclusivamente dados agregados — nenhum nome, CPF ou número de telefone individual é exibido.</p>
+  </details>
+
+  <footer>Secretaria da Educação do Estado da Bahia · Governo do Estado da Bahia</footer>
+</main>
+
+<script>
+const DATA = __DATA__;
+const C = {sim:'#16a34a', nao:'#FCB829', prim:'#4E8315', lima:'#8CC63F', cinza:'#94a3b8'};
+const fmt = new Intl.NumberFormat('pt-BR');
+const n = v => v==null ? '—' : fmt.format(v);
+const pctf = v => v==null ? '—' : v.toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1})+'%';
+let charts = {};
+function mk(id, cfg){ if(charts[id]) charts[id].destroy(); charts[id] = new Chart(document.getElementById(id), cfg); }
+
+const $ = sel => document.querySelector(sel);
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+
+/* ---------------- abas ---------------- */
+const tabs = [{id:'geral', label:'Visão geral (todos os dias)'}]
+  .concat(DATA.dias.map(d => ({id:d.id, label:d.label_curto, disabled:!d.tem_dados, hint:'aguardando dados de 16/11'})));
+let abaAtual = 'geral';
+
+function renderTabs(){
+  $('#tabs').innerHTML = tabs.map(t =>
+    `<button data-id="${t.id}" ${t.disabled?'disabled title="'+(t.hint||'')+'"':''} class="${t.id===abaAtual?'ativo':''}">${esc(t.label)}</button>`).join('');
+  $('#tabs').querySelectorAll('button').forEach(b => b.onclick = () => {
+    abaAtual = b.dataset.id; renderTabs(); render();
+  });
+}
+
+/* ---------------- dados do recorte ---------------- */
+function recorte(){
+  if(abaAtual === 'geral') return DATA.geral;
+  return DATA.dias.find(d => d.id === abaAtual);
+}
+
+/* ---------------- KPIs ---------------- */
+function kpiCard(cls, rotulo, valor, detalhe){
+  return `<div class="kpi ${cls||''}"><div class="rotulo">${rotulo}</div><div class="valor">${valor}</div><div class="detalhe">${detalhe||''}</div></div>`;
+}
+function renderKpis(r){
+  const k = r.kpis;
+  const pdm = r.pdmeia;
+  let html = ''
+    + kpiCard('', 'Interações recebidas', n(k.interacoes), `${n(k.numeros_unicos)} números únicos · ${n(k.numeros_multi_resposta)} com resposta repetida`)
+    + kpiCard('verde', 'Compareci (SIM)', n(k.sim), `${pctf(k.pct_sim)} das interações`)
+    + kpiCard('amarelo', 'Não compareci (NÃO)', n(k.nao), `${pctf(k.pct_nao)} das interações`);
+  // pico de respostas em uma hora
+  const sh = r.serie_horas || [];
+  if (sh.length) {
+    const pico = sh.reduce((a, b) => b.total > a.total ? b : a);
+    const d = pico.t.split('T');
+    const quando = `${d[0].slice(8,10)}/${d[0].slice(5,7)} às ${d[1].slice(0,2)}h`;
+    html += kpiCard('', 'Pico de respostas', n(pico.total), `em uma única hora · ${quando}`);
+  } else {
+    html += kpiCard('', 'Pico de respostas', '—', 'sem dados de série horária');
+  }
+  html += (pdm ? kpiCard('verde', 'Alunos Pé-de-Meia identificados', n(pdm.telefones_com_resposta),
+      `de ${n(pdm.base.telefones_distintos)} telefones da base · <span class="destaque">${pctf(pdm.pct_sim)}</span> disseram comparecer`)
+         : '');
+  $('#kpis').innerHTML = html;
+
+  if(pdm){
+    const b = pdm.base;
+    $('#kpisPdm').innerHTML = ''
+      + kpiCard('', 'Base concluintes', n(b.alunos_base), `${n(b.ntes)} NTEs · ${n(b.municipios)} municípios · ${n(b.cpfs_base)} CPFs distintos`)
+      + kpiCard('', 'Telefones válidos', n(b.telefones_validos), `${n(b.telefones_distintos)} distintos · ${pctf(100*b.telefones_validos/b.alunos_base)} da base com número utilizável`)
+      + kpiCard('verde', 'Identificados na enquete', n(pdm.telefones_com_resposta), `${pctf(100*pdm.telefones_com_resposta/b.telefones_distintos)} dos telefones da base responderam`)
+      + kpiCard('verde', 'Comparecimento declarado', pctf(pdm.pct_sim), `${n(pdm.sim)} SIM · ${n(pdm.nao)} NÃO entre identificados`);
+    $('#kpisPdm').style.display = '';
+    $('#cPdmDonut').closest('.card').style.display = '';
+    $('#cPdmNte').closest('.card').style.display = '';
+    $('#bpAviso').style.display = '';
+  } else {
+    $('#kpisPdm').innerHTML = '<div class="vazio">Base de alunos ainda não carregada.</div>';
+    $('#cPdmDonut').closest('.card').style.display = 'none';
+    $('#cPdmNte').closest('.card').style.display = 'none';
+  }
+}
+
+/* ---------------- gráficos ---------------- */
+function donutCfg(sim, nao){
+  return {
+    type:'doughnut',
+    data:{labels:['Compareci (SIM)','Não compareci (NÃO)'],
+      datasets:[{data:[sim,nao], backgroundColor:[C.sim,C.nao], borderWidth:2, borderColor:'#fff'}]},
+    options:{
+      cutout:'62%', maintainAspectRatio:false,
+      plugins:{
+        legend:{position:'bottom', labels:{usePointStyle:true, pointStyle:'circle', padding:14}},
+        tooltip:{callbacks:{label:c=>` ${c.label}: ${n(c.parsed)} (${pctf(100*c.parsed/(sim+nao))})`}}
+      }
+    }
+  };
+}
+function renderCharts(r){
+  const k = r.kpis;
+  mk('cDonut', donutCfg(k.sim, k.nao));
+  $('#donutLegenda').innerHTML = `Total de interações: <strong>${n(k.interacoes)}</strong> · Taxa de comparecimento declarada: <strong style="color:${C.sim}">${pctf(k.pct_sim)}</strong>`;
+
+  const sh = r.serie_horas;
+  mk('cHoras', {type:'line',
+    data:{labels: sh.map(x=>x.t.slice(5,16).replace('T',' ')),
+      datasets:[
+        {label:'NÃO', data:sh.map(x=>x.nao), borderColor:C.nao, backgroundColor:'rgba(220,38,38,.15)', fill:true, stepped:true, borderWidth:1.5},
+        {label:'SIM', data:sh.map(x=>x.sim), borderColor:C.sim, backgroundColor:'rgba(22,163,74,.15)', fill:true, stepped:true, borderWidth:1.5},
+      ]},
+    options:{maintainAspectRatio:false, interaction:{mode:'index', intersect:false},
+      scales:{x:{grid:{display:false}, ticks:{maxTicksLimit:14, font:{size:10}}},
+              y:{beginAtZero:true, grid:{color:'#eef2f7'}, ticks:{callback:v=>fmt.format(v)}}},
+      plugins:{tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${n(c.parsed.y)}`,
+        footer:it=>`Total na hora: ${n(it.reduce((a,c)=>a+c.parsed.y,0))}`}}}}
+  });
+
+  const ddd = r.por_ddd.slice(0,8);
+  const outros = r.por_ddd.slice(8).reduce((a,x)=>({sim:a.sim+x.sim, nao:a.nao+x.nao}),{sim:0,nao:0});
+  if(outros.sim+outros.nao>0) ddd.push({ddd:'Outros', sim:outros.sim, nao:outros.nao});
+  mk('cDdd', {type:'bar',
+    data:{labels: ddd.map(x=>x.ddd),
+      datasets:[{label:'SIM', data:ddd.map(x=>x.sim), backgroundColor:C.sim, borderRadius:4},
+                {label:'NÃO', data:ddd.map(x=>x.nao), backgroundColor:C.nao, borderRadius:4}]},
+    options:{maintainAspectRatio:false,
+      scales:{x:{stacked:true, grid:{display:false}}, y:{stacked:true, beginAtZero:true, grid:{color:'#eef2f7'}, ticks:{callback:v=>fmt.format(v)}}},
+      plugins:{tooltip:{callbacks:{title:c=>{const d=ddd[c[0].dataIndex];
+          return d.regiao? `${d.ddd} — ${d.regiao}` : d.ddd;},
+        label:c=>` ${c.dataset.label}: ${n(c.parsed.y)}`,
+        afterBody:c=>{const d=ddd[c[0].dataIndex]; return `Comparecimento: ${pctf(100*d.sim/(d.sim+d.nao))}`;}}}}}
+  });
+
+  const op = r.por_operadora;
+  mk('cOper', {type:'bar',
+    data:{labels: op.map(x=>x.operadora),
+      datasets:[{label:'SIM', data:op.map(x=>x.sim), backgroundColor:C.sim, borderRadius:4},
+                {label:'NÃO', data:op.map(x=>x.nao), backgroundColor:C.nao, borderRadius:4}]},
+    options:{maintainAspectRatio:false, indexAxis:'y',
+      scales:{x:{stacked:true, beginAtZero:true, grid:{color:'#eef2f7'}, ticks:{callback:v=>fmt.format(v)}},
+              y:{stacked:true, grid:{display:false}}},
+      plugins:{tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${n(c.parsed.x)}`}}}}
+  });
+
+  const ufs = r.por_uf.slice(0,10);
+  const ufOutros = r.por_uf.slice(10).reduce((a,x)=>({sim:a.sim+x.sim, nao:a.nao+x.nao}),{sim:0,nao:0});
+  if(ufOutros.sim+ufOutros.nao>0) ufs.push({uf:'Outras', sim:ufOutros.sim, nao:ufOutros.nao});
+  mk('cUf', {type:'bar',
+    data:{labels: ufs.map(x=>x.uf),
+      datasets:[{label:'SIM', data:ufs.map(x=>x.sim), backgroundColor:C.sim, borderRadius:3},
+                {label:'NÃO', data:ufs.map(x=>x.nao), backgroundColor:C.nao, borderRadius:3}]},
+    options:{maintainAspectRatio:false, indexAxis:'y',
+      scales:{x:{stacked:true, beginAtZero:true, grid:{color:'#eef2f7'}, ticks:{callback:v=>fmt.format(v)}},
+              y:{stacked:true, grid:{display:false}}},
+      plugins:{tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${n(c.parsed.x)}`}}}}
+  });
+
+  // Pé-de-Meia
+  if(r.pdmeia){
+    const p = r.pdmeia;
+    mk('cPdmDonut', donutCfg(p.sim, p.nao, 'cPdmDonut'));
+    const ntes = p.por_nte;
+    mk('cPdmNte', {type:'bar',
+      data:{labels: ntes.map(x=>x.nte.replace('NTE ','')),
+        datasets:[{label:'SIM', data:ntes.map(x=>x.sim), backgroundColor:C.sim, borderRadius:3},
+                  {label:'NÃO', data:ntes.map(x=>x.nao), backgroundColor:C.nao, borderRadius:3}]},
+      options:{maintainAspectRatio:false, indexAxis:'y',
+        scales:{x:{stacked:true, beginAtZero:true, grid:{color:'#eef2f7'}, ticks:{callback:v=>fmt.format(v)}},
+                y:{stacked:true, grid:{display:false}, ticks:{font:{size:10}}}},
+        plugins:{tooltip:{callbacks:{title:c=>ntes[c[0].dataIndex].nte,
+          label:c=>` ${c.dataset.label}: ${n(c.datasetType==='x'?c.parsed.x:c.parsed.y)}`,
+          afterBody:c=>{const d=ntes[c[0].dataIndex]; return `Comparecimento: ${pctf(d.pct_sim)}`;}}}}}
+    });
+  }
+}
+
+/* ---------------- comparativo entre dias ---------------- */
+function renderComparativo(){
+  const comDados = DATA.dias.filter(d=>d.tem_dados);
+  let rows = DATA.dias.map(d=>{
+    if(!d.tem_dados) return `<tr><td>${esc(d.label_curto)}</td><td colspan="7" class="vazio" style="padding:14px">Aguardando o export da enquete de 16/11/2026 — os números do 2º domingo aparecerão aqui automaticamente.</td></tr>`;
+    const k=d.kpis;
+    return `<tr><td><strong>${esc(d.label_curto)}</strong></td><td class="num">${n(k.interacoes)}</td><td class="num">${n(k.sim)}</td><td class="num">${n(k.nao)}</td>
+      <td class="num"><span class="pill sim">${pctf(k.pct_sim)}</span></td><td class="num">${n(k.numeros_unicos)}</td>
+      <td class="num">${d.pdmeia?n(d.pdmeia.telefones_com_resposta):'—'}</td></tr>`;
+  });
+  if(comDados.length>1){
+    rows.push(`<tr><td><strong>Visão geral</strong></td><td class="num">${n(DATA.geral.kpis.interacoes)}</td><td class="num">${n(DATA.geral.kpis.sim)}</td><td class="num">${n(DATA.geral.kpis.nao)}</td>
+      <td class="num"><span class="pill cinza">${pctf(DATA.geral.kpis.pct_sim)}</span></td><td class="num">${n(DATA.geral.kpis.numeros_unicos)}</td><td class="num">${DATA.geral.pdmeia?n(DATA.geral.pdmeia.telefones_com_resposta):'—'}</td></tr>`);
+  }
+  $('#comparativo').innerHTML = `<table>
+    <thead><tr><th>Dia de aplicação</th><th class="num">Interações</th><th class="num">SIM</th><th class="num">NÃO</th>
+    <th class="num">% Compareci</th><th class="num">Números únicos</th><th class="num">Pé-de-Meia identificados</th></tr></thead>
+    <tbody>${rows.join('')}</tbody></table>
+    ${comDados.length>1?'<div class="nota" style="margin-top:8px">Quando o 2º domingo for processado, esta tabela mostrará a variação (p.p.) do comparecimento declarado entre os dias.</div>':''}`;
+}
+
+/* ---------------- avisos ---------------- */
+function renderAvisos(){
+  $('#avisos').innerHTML = DATA.meta.avisos.map(a=>`<li>${esc(a)}</li>`).join('');
+  const bp = DATA.meta.bp;
+  if(bp && bp.alunos != null){
+    let txt = `Bolsa Presença: <strong>${n(bp.alunos)}</strong> alunos na base · <strong>${n(bp.ntes)}</strong> NTEs`;
+    if(bp.tem_telefone) txt += ' · telefones disponíveis na base — cruzamento habilitado.';
+    else txt += ' · <strong style="color:#b45309">sem coluna de telefone</strong>' + (bp.obs||[]).map(o=>` — ${esc(o)}`).join('');
+    $('#bpAviso').innerHTML = `<h3>Bolsa Presença</h3><div class="nota" style="margin-top:6px">${txt}</div>`;
+  } else {
+    $('#bpAviso').style.display='none';
+  }
+}
+
+/* ---------------- render principal ---------------- */
+function render(){
+  const r = recorte();
+  if(!r || !r.kpis){ $('#kpis').innerHTML='<div class="vazio">Sem dados neste recorte.</div>'; return; }
+  renderKpis(r);
+  renderCharts(r);
+  renderComparativo();
+}
+
+/* init */
+renderAvisos();
+renderTabs();
+render();
+</script>
+</body>
+</html>
