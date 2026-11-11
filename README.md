@@ -106,6 +106,20 @@ dashboard.html   # duplo clique — funciona offline
 node check_dashboard.mjs   # sintaxe, Chart.js, execução e dados dos KPIs
 ```
 
+## ☁️ Publicar (Vercel)
+
+A `dashboard.html` é **autocontida** (Chart.js, dados e logo embutidos — zero
+requisições externas), então funciona em qualquer hospedagem estática **mesmo
+sem as fontes de dados**, que nunca sobem para o repositório.
+
+1. Importe este repositório na Vercel (framework: **Other**, sem build)
+2. O `vercel.json` já redireciona a raiz para `dashboard.html`
+3. A cada atualização: rode `python etl.py` localmente → commit → push → a Vercel
+   publica a nova versão automaticamente
+
+> O processamento dos dados (`etl.py`) acontece **na máquina da Secretaria** —
+> o servidor só publica o HTML já gerado.
+
 ## 🛠️ Stack
 
 `Python` (pandas · openpyxl · pymupdf · Pillow) · `Chart.js 4` · `HTML/CSS/JS` puro
