@@ -188,7 +188,6 @@ __CHARTJS__
       <div class="chart-box alto"><canvas id="cPdmNte"></canvas></div>
     </div>
   </div>
-  <div class="card" id="bpAviso" style="margin-bottom:18px"></div>
 
   <!-- Comparativo entre dias -->
   <div class="secao-titulo"><h2>Comparativo entre dias de aplicação</h2><div class="linha"></div></div>
@@ -198,7 +197,7 @@ __CHARTJS__
   <details>
     <summary>Sobre os dados e metodologia</summary>
     <ul id="avisos"></ul>
-    <p>A dashboard é atualizada automaticamente quando uma nova coleta da enquete é processada: o dia de aplicação é atribuído pela janela <code>[data da prova, +7 dias)</code>, e o cruzamento com as bases de alunos (Pé-de-Meia e Bolsa Presença, quando houver telefones) é feito por telefone normalizado (DDD + 9 dígitos).</p>
+    <p>A dashboard é atualizada automaticamente quando uma nova coleta da enquete é processada: o dia de aplicação é atribuído pela janela <code>[data da prova, +7 dias)</code>, e o cruzamento com a base de concluintes é feito por telefone normalizado (DDD + 9 dígitos).</p>
     <p>Contém exclusivamente dados agregados — nenhum nome, CPF ou número de telefone individual é exibido.</p>
   </details>
 
@@ -272,7 +271,6 @@ function renderKpis(r){
     $('#kpisPdm').style.display = '';
     $('#cPdmDonut').closest('.card').style.display = '';
     $('#cPdmNte').closest('.card').style.display = '';
-    $('#bpAviso').style.display = '';
   } else {
     $('#kpisPdm').innerHTML = '<div class="vazio">Base de alunos ainda não carregada.</div>';
     $('#cPdmDonut').closest('.card').style.display = 'none';
@@ -396,15 +394,6 @@ function renderComparativo(){
 /* ---------------- avisos ---------------- */
 function renderAvisos(){
   $('#avisos').innerHTML = DATA.meta.avisos.map(a=>`<li>${esc(a)}</li>`).join('');
-  const bp = DATA.meta.bp;
-  if(bp && bp.alunos != null){
-    let txt = `Bolsa Presença: <strong>${n(bp.alunos)}</strong> alunos na base · <strong>${n(bp.ntes)}</strong> NTEs`;
-    if(bp.tem_telefone) txt += ' · telefones disponíveis na base — cruzamento habilitado.';
-    else txt += ' · <strong style="color:#b45309">sem coluna de telefone</strong>' + (bp.obs||[]).map(o=>` — ${esc(o)}`).join('');
-    $('#bpAviso').innerHTML = `<h3>Bolsa Presença</h3><div class="nota" style="margin-top:6px">${txt}</div>`;
-  } else {
-    $('#bpAviso').style.display='none';
-  }
 }
 
 /* ---------------- render principal ---------------- */

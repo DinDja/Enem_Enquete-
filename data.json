@@ -1,15 +1,7 @@
 {
  "meta": {
-  "gerado_em": "11/11/2026 08:21",
+  "gerado_em": "11/11/2026 10:04",
   "titulo": "ENEM 2026 — Enquete de Participação (WhatsApp) · SEC Bahia",
-  "bp": {
-   "tem_telefone": false,
-   "alunos": 398722,
-   "ntes": 27,
-   "obs": [
-    "A base Bolsa Presença não possui telefone — o cruzamento por número fica indisponível até que os telefones sejam incluídos na base."
-   ]
-  },
   "avisos": [
    "A base contém apenas interações RECEBIDAS (sem contagem de envios): não é possível calcular taxa de resposta (respostas/enviados).",
    "DDD reflete a origem do número; portabilidade e números antigos podem distorcer o recorte geográfico.",

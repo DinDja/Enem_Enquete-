@@ -141,7 +141,12 @@ def load_pdm():
 
 
 def load_bp():
-    """Base Bolsa Presença — retorna meta (contagens) e checa se há telefone."""
+    """Base Bolsa Presença — usada somente quando a base passar a ter telefones.
+
+    Atualmente não é chamada: a base não traz telefones e nenhum dado dela
+    aparece na dashboard. Quando houver telefones, o cruzamento será feito
+    como em cruzamento_pdm().
+    """
     meta = {"tem_telefone": False, "alunos": None, "ntes": None, "obs": []}
     for a in ARQ_BP:
         try:
@@ -298,9 +303,6 @@ def main():
     pdm = load_pdm()
     print(f"  base: {len(pdm) if pdm is not None else 0} alunos")
 
-    print("Lendo Bolsa Presença (meta)...")
-    bp = load_bp()
-
     dias = []
     for ex in EXAM_DAYS:
         sub = df[df["dia"] == ex["id"]]
@@ -322,7 +324,6 @@ def main():
         "meta": {
             "gerado_em": datetime.now().strftime("%d/%m/%Y %H:%M"),
             "titulo": "ENEM 2026 — Enquete de Participação (WhatsApp) · SEC Bahia",
-            "bp": bp,
             "avisos": [
                 "A base contém apenas interações RECEBIDAS (sem contagem de envios): não é possível calcular taxa de resposta (respostas/enviados).",
                 "DDD reflete a origem do número; portabilidade e números antigos podem distorcer o recorte geográfico.",
