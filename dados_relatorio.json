@@ -1,0 +1,16 @@
+{
+  "referencia": "Relatório da plataforma de envio · gerado em 12/11/2026 10:04",
+  "janela": "09/11/2026 14:00 → 12/11/2026 10:02 (Brasília)",
+  "envio": {
+    "entregue": 99035,
+    "rejeitado": 4311,
+    "expirado": 6034,
+    "nao_entregue": 20036,
+    "total": 129416
+  },
+  "respostas": {
+    "sim": 35090,
+    "nao": 7026,
+    "total": 42116
+  }
+}

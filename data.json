@@ -1,11 +1,13 @@
 {
  "meta": {
-  "gerado_em": "11/11/2026 10:04",
+  "gerado_em": "13/11/2026 11:07",
   "titulo": "ENEM 2026 — Enquete de Participação (WhatsApp) · SEC Bahia",
+  "relatorio": "Relatório da plataforma de envio · gerado em 12/11/2026 10:04",
+  "janela_relatorio": "09/11/2026 14:00 → 12/11/2026 10:02 (Brasília)",
   "avisos": [
-   "A base contém apenas interações RECEBIDAS (sem contagem de envios): não é possível calcular taxa de resposta (respostas/enviados).",
+   "Os recortes detalhados (por hora, DDD, operadora e UF) são do levantamento de 10/11/2026 16:04; os totais gerais refletem o levantamento de 12/11/2026.",
    "DDD reflete a origem do número; portabilidade e números antigos podem distorcer o recorte geográfico.",
-   "577 números enviaram mais de uma resposta; o KPI de interações mantém todas e 'números únicos' deduplica.",
+   "Responder 'SIM' é declaração do contato (pode ser o próprio aluno ou quem tem o número dele no telefone).",
    "Dados exclusivamente agregados — nenhum nome, CPF ou número de telefone individual é incluído na dashboard."
   ]
  },
@@ -17,19 +19,23 @@
    "label_curto": "1º domingo (08/11)",
    "tem_dados": true,
    "kpis": {
-    "interacoes": 41509,
-    "sim": 34630,
-    "nao": 6879,
-    "pct_sim": 83.4,
-    "pct_nao": 16.6,
-    "numeros_unicos": 40910,
-    "numeros_multi_resposta": 577,
-    "primeira_resposta": "09/11/2026 14:29",
-    "ultima_resposta": "10/11/2026 16:04",
-    "datas_coleta": [
-     "09/11/2026",
-     "10/11/2026"
-    ]
+    "interacoes": 42116,
+    "sim": 35090,
+    "nao": 7026,
+    "pct_sim": 83.3,
+    "pct_nao": 16.7,
+    "envios": 129416,
+    "entregues": 99035,
+    "taxa_entrega": 76.5,
+    "taxa_resposta": 32.5,
+    "taxa_resposta_entregues": 42.5,
+    "envio_detalhe": {
+     "Entregue": 99035,
+     "Rejeitado": 4311,
+     "Expirado": 6034,
+     "Não pode ser entregue": 20036
+    },
+    "fonte": "relatorio"
    },
    "serie_horas": [
     {
@@ -927,7 +933,9 @@
      "pct_sim": 100.0
     }
    ],
+   "ref_recortes": "10/11/2026 16:04",
    "pdmeia": {
+    "fonte": "lista_sim",
     "base": {
      "alunos_base": 122148,
      "cpfs_base": 122148,
@@ -936,227 +944,145 @@
      "ntes": 27,
      "municipios": 417
     },
-    "telefones_com_resposta": 31096,
-    "respostas": 31549,
-    "sim": 26837,
-    "nao": 4712,
-    "pct_sim": 85.1,
+    "telefones_com_resposta": 35031,
+    "identificados_sim": 27150,
+    "pct_dos_sim": 77.4,
+    "pct_da_base": 24.3,
     "por_nte": [
      {
       "nte": "NTE 26 - SALVADOR / RMS",
-      "telefones": 5687,
-      "sim": 4857,
-      "nao": 830,
-      "total": 5687,
-      "pct_sim": 85.4
+      "sim": 4963,
+      "total": 4963
      },
      {
       "nte": "NTE 19 - PORTAL DO SERTAO",
-      "telefones": 1987,
-      "sim": 1774,
-      "nao": 213,
-      "total": 1987,
-      "pct_sim": 89.3
-     },
-     {
-      "nte": "NTE 04 - SISAL",
-      "telefones": 1742,
-      "sim": 1430,
-      "nao": 312,
-      "total": 1742,
-      "pct_sim": 82.1
+      "sim": 1819,
+      "total": 1819
      },
      {
       "nte": "NTE 20 - SUDOESTE BAIANO",
-      "telefones": 1635,
-      "sim": 1438,
-      "nao": 197,
-      "total": 1635,
-      "pct_sim": 88.0
+      "sim": 1462,
+      "total": 1462
+     },
+     {
+      "nte": "NTE 04 - SISAL",
+      "sim": 1462,
+      "total": 1462
      },
      {
       "nte": "NTE 05 - LITORAL SUL",
-      "telefones": 1295,
-      "sim": 1151,
-      "nao": 144,
-      "total": 1295,
-      "pct_sim": 88.9
-     },
-     {
-      "nte": "NTE 21 - RECONCAVO",
-      "telefones": 1242,
-      "sim": 1047,
-      "nao": 195,
-      "total": 1242,
-      "pct_sim": 84.3
+      "sim": 1168,
+      "total": 1168
      },
      {
       "nte": "NTE 13 - SERTAO PRODUTIVO",
-      "telefones": 1210,
-      "sim": 1067,
-      "nao": 143,
-      "total": 1210,
-      "pct_sim": 88.2
+      "sim": 1085,
+      "total": 1085
+     },
+     {
+      "nte": "NTE 21 - RECONCAVO",
+      "sim": 1076,
+      "total": 1076
      },
      {
       "nte": "NTE 11 - BACIA DO RIO GRANDE",
-      "telefones": 1181,
-      "sim": 1008,
-      "nao": 173,
-      "total": 1181,
-      "pct_sim": 85.4
+      "sim": 1035,
+      "total": 1035
      },
      {
       "nte": "NTE 18 - LITORAL NORTE AGRESTE BAIANO",
-      "telefones": 1177,
-      "sim": 992,
-      "nao": 185,
-      "total": 1177,
-      "pct_sim": 84.3
-     },
-     {
-      "nte": "NTE 10 - SERTAO DO SAO FRANCISCO ",
-      "telefones": 1160,
-      "sim": 965,
-      "nao": 195,
-      "total": 1160,
-      "pct_sim": 83.2
+      "sim": 1006,
+      "total": 1006
      },
      {
       "nte": "NTE 17 - SEMIARIDO NORDESTE II",
-      "telefones": 1126,
-      "sim": 966,
-      "nao": 160,
-      "total": 1126,
-      "pct_sim": 85.8
+      "sim": 983,
+      "total": 983
+     },
+     {
+      "nte": "NTE 10 - SERTAO DO SAO FRANCISCO ",
+      "sim": 982,
+      "total": 982
      },
      {
       "nte": "NTE 02 - VELHO CHICO",
-      "telefones": 1095,
-      "sim": 919,
-      "nao": 176,
-      "total": 1095,
-      "pct_sim": 83.9
+      "sim": 948,
+      "total": 948
      },
      {
       "nte": "NTE 01 - IRECE",
-      "telefones": 1089,
-      "sim": 913,
-      "nao": 176,
-      "total": 1089,
-      "pct_sim": 83.8
-     },
-     {
-      "nte": "NTE 03 - CHAPADA DIAMANTINA",
-      "telefones": 898,
-      "sim": 715,
-      "nao": 183,
-      "total": 898,
-      "pct_sim": 79.6
+      "sim": 928,
+      "total": 928
      },
      {
       "nte": "NTE 09 - VALE DO JIQUIRICA",
-      "telefones": 893,
-      "sim": 782,
-      "nao": 111,
-      "total": 893,
-      "pct_sim": 87.6
+      "sim": 798,
+      "total": 798
      },
      {
       "nte": "NTE 25 - PIEMONTE NORTE DO ITAPICURU",
-      "telefones": 869,
-      "sim": 725,
-      "nao": 144,
-      "total": 869,
-      "pct_sim": 83.4
+      "sim": 744,
+      "total": 744
+     },
+     {
+      "nte": "NTE 03 - CHAPADA DIAMANTINA",
+      "sim": 737,
+      "total": 737
      },
      {
       "nte": "NTE 22 - MEDIO RIO DE CONTAS",
-      "telefones": 761,
-      "sim": 667,
-      "nao": 94,
-      "total": 761,
-      "pct_sim": 87.6
+      "sim": 683,
+      "total": 683
      },
      {
       "nte": "NTE 07 - EXTREMO SUL",
-      "telefones": 755,
-      "sim": 659,
-      "nao": 96,
-      "total": 755,
-      "pct_sim": 87.3
-     },
-     {
-      "nte": "NTE 14 - PIEMONTE DO PARAGUACU",
-      "telefones": 751,
-      "sim": 627,
-      "nao": 124,
-      "total": 751,
-      "pct_sim": 83.5
+      "sim": 670,
+      "total": 670
      },
      {
       "nte": "NTE 15 - BACIA DO JACUIPE",
-      "telefones": 741,
-      "sim": 644,
-      "nao": 97,
-      "total": 741,
-      "pct_sim": 86.9
+      "sim": 657,
+      "total": 657
+     },
+     {
+      "nte": "NTE 14 - PIEMONTE DO PARAGUACU",
+      "sim": 643,
+      "total": 643
      },
      {
       "nte": "NTE 06 - BAIXO SUL",
-      "telefones": 701,
-      "sim": 589,
-      "nao": 112,
-      "total": 701,
-      "pct_sim": 84.0
+      "sim": 607,
+      "total": 607
      },
      {
       "nte": "NTE 23 - BACIA DO RIO CORRENTE",
-      "telefones": 647,
-      "sim": 542,
-      "nao": 105,
-      "total": 647,
-      "pct_sim": 83.8
+      "sim": 561,
+      "total": 561
      },
      {
       "nte": "NTE 27 - COSTA DO DESCOBRIMENTO",
-      "telefones": 555,
-      "sim": 465,
-      "nao": 90,
-      "total": 555,
-      "pct_sim": 83.8
+      "sim": 471,
+      "total": 471
      },
      {
       "nte": "NTE 16 - PIEMONTE DE DIAMANTINA II",
-      "telefones": 527,
-      "sim": 445,
-      "nao": 82,
-      "total": 527,
-      "pct_sim": 84.4
+      "sim": 453,
+      "total": 453
      },
      {
       "nte": "NTE 24 - ITAPARICA",
-      "telefones": 495,
-      "sim": 427,
-      "nao": 68,
-      "total": 495,
-      "pct_sim": 86.3
+      "sim": 431,
+      "total": 431
      },
      {
       "nte": "NTE 12 - BACIA DO PARAMIRIM",
-      "telefones": 451,
-      "sim": 391,
-      "nao": 60,
-      "total": 451,
-      "pct_sim": 86.7
+      "sim": 399,
+      "total": 399
      },
      {
       "nte": "NTE 08 - MEDIO SUDOESTE DA BAHIA",
-      "telefones": 426,
-      "sim": 366,
-      "nao": 60,
-      "total": 426,
-      "pct_sim": 85.9
+      "sim": 379,
+      "total": 379
      }
     ]
    }
@@ -1170,20 +1096,25 @@
   }
  ],
  "geral": {
+  "id": "geral",
   "kpis": {
-   "interacoes": 41509,
-   "sim": 34630,
-   "nao": 6879,
-   "pct_sim": 83.4,
-   "pct_nao": 16.6,
-   "numeros_unicos": 40910,
-   "numeros_multi_resposta": 577,
-   "primeira_resposta": "09/11/2026 14:29",
-   "ultima_resposta": "10/11/2026 16:04",
-   "datas_coleta": [
-    "09/11/2026",
-    "10/11/2026"
-   ]
+   "interacoes": 42116,
+   "sim": 35090,
+   "nao": 7026,
+   "pct_sim": 83.3,
+   "pct_nao": 16.7,
+   "envios": 129416,
+   "entregues": 99035,
+   "taxa_entrega": 76.5,
+   "taxa_resposta": 32.5,
+   "taxa_resposta_entregues": 42.5,
+   "envio_detalhe": {
+    "Entregue": 99035,
+    "Rejeitado": 4311,
+    "Expirado": 6034,
+    "Não pode ser entregue": 20036
+   },
+   "fonte": "relatorio"
   },
   "serie_horas": [
    {
@@ -2081,8 +2012,9 @@
     "pct_sim": 100.0
    }
   ],
-  "id": "geral",
+  "ref_recortes": "10/11/2026 16:04",
   "pdmeia": {
+   "fonte": "lista_sim",
    "base": {
     "alunos_base": 122148,
     "cpfs_base": 122148,
@@ -2091,227 +2023,145 @@
     "ntes": 27,
     "municipios": 417
    },
-   "telefones_com_resposta": 31096,
-   "respostas": 31549,
-   "sim": 26837,
-   "nao": 4712,
-   "pct_sim": 85.1,
+   "telefones_com_resposta": 35031,
+   "identificados_sim": 27150,
+   "pct_dos_sim": 77.4,
+   "pct_da_base": 24.3,
    "por_nte": [
     {
      "nte": "NTE 26 - SALVADOR / RMS",
-     "telefones": 5687,
-     "sim": 4857,
-     "nao": 830,
-     "total": 5687,
-     "pct_sim": 85.4
+     "sim": 4963,
+     "total": 4963
     },
     {
      "nte": "NTE 19 - PORTAL DO SERTAO",
-     "telefones": 1987,
-     "sim": 1774,
-     "nao": 213,
-     "total": 1987,
-     "pct_sim": 89.3
-    },
-    {
-     "nte": "NTE 04 - SISAL",
-     "telefones": 1742,
-     "sim": 1430,
-     "nao": 312,
-     "total": 1742,
-     "pct_sim": 82.1
+     "sim": 1819,
+     "total": 1819
     },
     {
      "nte": "NTE 20 - SUDOESTE BAIANO",
-     "telefones": 1635,
-     "sim": 1438,
-     "nao": 197,
-     "total": 1635,
-     "pct_sim": 88.0
+     "sim": 1462,
+     "total": 1462
+    },
+    {
+     "nte": "NTE 04 - SISAL",
+     "sim": 1462,
+     "total": 1462
     },
     {
      "nte": "NTE 05 - LITORAL SUL",
-     "telefones": 1295,
-     "sim": 1151,
-     "nao": 144,
-     "total": 1295,
-     "pct_sim": 88.9
-    },
-    {
-     "nte": "NTE 21 - RECONCAVO",
-     "telefones": 1242,
-     "sim": 1047,
-     "nao": 195,
-     "total": 1242,
-     "pct_sim": 84.3
+     "sim": 1168,
+     "total": 1168
     },
     {
      "nte": "NTE 13 - SERTAO PRODUTIVO",
-     "telefones": 1210,
-     "sim": 1067,
-     "nao": 143,
-     "total": 1210,
-     "pct_sim": 88.2
+     "sim": 1085,
+     "total": 1085
+    },
+    {
+     "nte": "NTE 21 - RECONCAVO",
+     "sim": 1076,
+     "total": 1076
     },
     {
      "nte": "NTE 11 - BACIA DO RIO GRANDE",
-     "telefones": 1181,
-     "sim": 1008,
-     "nao": 173,
-     "total": 1181,
-     "pct_sim": 85.4
+     "sim": 1035,
+     "total": 1035
     },
     {
      "nte": "NTE 18 - LITORAL NORTE AGRESTE BAIANO",
-     "telefones": 1177,
-     "sim": 992,
-     "nao": 185,
-     "total": 1177,
-     "pct_sim": 84.3
-    },
-    {
-     "nte": "NTE 10 - SERTAO DO SAO FRANCISCO ",
-     "telefones": 1160,
-     "sim": 965,
-     "nao": 195,
-     "total": 1160,
-     "pct_sim": 83.2
+     "sim": 1006,
+     "total": 1006
     },
     {
      "nte": "NTE 17 - SEMIARIDO NORDESTE II",
-     "telefones": 1126,
-     "sim": 966,
-     "nao": 160,
-     "total": 1126,
-     "pct_sim": 85.8
+     "sim": 983,
+     "total": 983
+    },
+    {
+     "nte": "NTE 10 - SERTAO DO SAO FRANCISCO ",
+     "sim": 982,
+     "total": 982
     },
     {
      "nte": "NTE 02 - VELHO CHICO",
-     "telefones": 1095,
-     "sim": 919,
-     "nao": 176,
-     "total": 1095,
-     "pct_sim": 83.9
+     "sim": 948,
+     "total": 948
     },
     {
      "nte": "NTE 01 - IRECE",
-     "telefones": 1089,
-     "sim": 913,
-     "nao": 176,
-     "total": 1089,
-     "pct_sim": 83.8
-    },
-    {
-     "nte": "NTE 03 - CHAPADA DIAMANTINA",
-     "telefones": 898,
-     "sim": 715,
-     "nao": 183,
-     "total": 898,
-     "pct_sim": 79.6
+     "sim": 928,
+     "total": 928
     },
     {
      "nte": "NTE 09 - VALE DO JIQUIRICA",
-     "telefones": 893,
-     "sim": 782,
-     "nao": 111,
-     "total": 893,
-     "pct_sim": 87.6
+     "sim": 798,
+     "total": 798
     },
     {
      "nte": "NTE 25 - PIEMONTE NORTE DO ITAPICURU",
-     "telefones": 869,
-     "sim": 725,
-     "nao": 144,
-     "total": 869,
-     "pct_sim": 83.4
+     "sim": 744,
+     "total": 744
+    },
+    {
+     "nte": "NTE 03 - CHAPADA DIAMANTINA",
+     "sim": 737,
+     "total": 737
     },
     {
      "nte": "NTE 22 - MEDIO RIO DE CONTAS",
-     "telefones": 761,
-     "sim": 667,
-     "nao": 94,
-     "total": 761,
-     "pct_sim": 87.6
+     "sim": 683,
+     "total": 683
     },
     {
      "nte": "NTE 07 - EXTREMO SUL",
-     "telefones": 755,
-     "sim": 659,
-     "nao": 96,
-     "total": 755,
-     "pct_sim": 87.3
-    },
-    {
-     "nte": "NTE 14 - PIEMONTE DO PARAGUACU",
-     "telefones": 751,
-     "sim": 627,
-     "nao": 124,
-     "total": 751,
-     "pct_sim": 83.5
+     "sim": 670,
+     "total": 670
     },
     {
      "nte": "NTE 15 - BACIA DO JACUIPE",
-     "telefones": 741,
-     "sim": 644,
-     "nao": 97,
-     "total": 741,
-     "pct_sim": 86.9
+     "sim": 657,
+     "total": 657
+    },
+    {
+     "nte": "NTE 14 - PIEMONTE DO PARAGUACU",
+     "sim": 643,
+     "total": 643
     },
     {
      "nte": "NTE 06 - BAIXO SUL",
-     "telefones": 701,
-     "sim": 589,
-     "nao": 112,
-     "total": 701,
-     "pct_sim": 84.0
+     "sim": 607,
+     "total": 607
     },
     {
      "nte": "NTE 23 - BACIA DO RIO CORRENTE",
-     "telefones": 647,
-     "sim": 542,
-     "nao": 105,
-     "total": 647,
-     "pct_sim": 83.8
+     "sim": 561,
+     "total": 561
     },
     {
      "nte": "NTE 27 - COSTA DO DESCOBRIMENTO",
-     "telefones": 555,
-     "sim": 465,
-     "nao": 90,
-     "total": 555,
-     "pct_sim": 83.8
+     "sim": 471,
+     "total": 471
     },
     {
      "nte": "NTE 16 - PIEMONTE DE DIAMANTINA II",
-     "telefones": 527,
-     "sim": 445,
-     "nao": 82,
-     "total": 527,
-     "pct_sim": 84.4
+     "sim": 453,
+     "total": 453
     },
     {
      "nte": "NTE 24 - ITAPARICA",
-     "telefones": 495,
-     "sim": 427,
-     "nao": 68,
-     "total": 495,
-     "pct_sim": 86.3
+     "sim": 431,
+     "total": 431
     },
     {
      "nte": "NTE 12 - BACIA DO PARAMIRIM",
-     "telefones": 451,
-     "sim": 391,
-     "nao": 60,
-     "total": 451,
-     "pct_sim": 86.7
+     "sim": 399,
+     "total": 399
     },
     {
      "nte": "NTE 08 - MEDIO SUDOESTE DA BAHIA",
-     "telefones": 426,
-     "sim": 366,
-     "nao": 60,
-     "total": 426,
-     "pct_sim": 85.9
+     "sim": 379,
+     "total": 379
     }
    ]
   }
